@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Please send us your project{% endblock %}
+
+{% block body %}
+    <div class="row">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_label(form, 'Project Request') }}
+            {{ form_widget(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+

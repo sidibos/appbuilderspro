@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app-builders-pro-db:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: appbuilderspro
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+  app:
+    build: ./docker/app
+    ports:
+      - 8080:8000
+    volumes:
+      - .:/var/www
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "/var/www/public"]
+    environment:
+      DATABASE_URL: mysql://root:appbuilderspro@app-builders-pro-db:3306/appbuilderspro

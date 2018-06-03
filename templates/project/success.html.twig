@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project Request{% endblock %}
+
+{% block body %}
+
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Project request</h4>
+        <p>
+            {{ message }}
+        </p>
+    </div>
+    <a href="{{ path('project_request') }}">Submit another Project</a>
+{% endblock %}
